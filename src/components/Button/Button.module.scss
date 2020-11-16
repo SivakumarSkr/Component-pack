@@ -1,0 +1,51 @@
+$primary-color: #128CD6;
+$normal-width: 93px;
+$normal-height: 39px;
+.Button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+    // width: $normal-width;
+    // height: $normal-height;
+    padding: 13px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    outline: none;
+    &__Primary {
+        border: none;
+        background-color: $primary-color;
+        color: #FFFFFF;
+        &:hover {
+            background-color: #61C4E8;
+        }
+        &:active {
+            background-color: #095CAB;
+        }
+        &:disabled {
+            background-color: #DADEE5;
+            color: #AAADB2;
+            pointer-events: none;
+        }
+    }
+    &__Secondary {
+        background-color: #FFFFFF;
+        border: 1px solid #128CD6;
+        color: #128CD6;
+    }
+ 
+    &__Tertiary {
+        background-color: #FFFFFF;
+        border: 1px solid #AAADB2;
+        color: #494A4C;
+    }
+}

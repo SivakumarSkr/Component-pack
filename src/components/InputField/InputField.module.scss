@@ -1,0 +1,59 @@
+.InputField {
+    position: relative;
+    height: 62px;
+    &:focus-within {
+        .Label {
+            color: #128CD6;
+        }
+    }
+}
+.Input {
+    position: absolute;
+    left: 0%;
+    top: 36%;
+    background-color: #FFFFFF;
+    border: 1px solid #DADEE5;
+    box-sizing: border-box;
+    border-radius: 7px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 17px;
+    color: #181919;
+    width: 250px;
+    height: 40px;
+    padding: 0 10px;
+    outline: none;
+    &:hover {
+        border: 1px solid #128CD6;
+    }
+    &:focus {
+        border: 1px solid #128CD6;
+        box-shadow: 0px 0px 7px 3px rgba(18, 140, 214, 0.22);
+        caret-color: #128CD6;
+    }
+    &::placeholder {
+        color: #AAADB2;
+    }
+    &:disabled {
+        background: #F2F2F2;
+        border: 1px solid #DADEE5;
+        color: #797B80;
+    }
+}
+
+.Label {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    font-style: normal;
+    font-family: "Inter", sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #494A4C;
+    &__Disabled {
+        color: #AAADB2;
+    }
+}
+
