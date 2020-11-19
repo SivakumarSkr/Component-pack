@@ -1,18 +1,18 @@
 .InputField {
     position: relative;
-    height: 62px;
+    // height: 62px;
     &:focus-within {
-        .Label {
+        .Label--Normal {
             color: #128CD6;
         }
     }
+    &__Field{
+        position: relative;
+        margin-top: 5px;
+    }
 }
 .Input {
-    position: absolute;
-    left: 0%;
-    top: 36%;
     background-color: #FFFFFF;
-    border: 1px solid #DADEE5;
     box-sizing: border-box;
     border-radius: 7px;
     font-size: 14px;
@@ -20,20 +20,41 @@
     font-weight: normal;
     line-height: 17px;
     color: #181919;
-    width: 250px;
+    width: 100%;
     height: 40px;
     padding: 0 10px;
     outline: none;
-    &:hover {
-        border: 1px solid #128CD6;
+    &--Normal {
+        border: 1px solid #DADEE5;
+        &:hover {
+            border: 1px solid #128CD6;
+        }
+        &:focus {
+            border: 1px solid #128CD6;
+            box-shadow: 0px 0px 7px 3px rgba(18, 140, 214, 0.22);
+            caret-color: #128CD6;
+        }
+        &::placeholder {
+            color: #AAADB2;
+        }
     }
-    &:focus {
-        border: 1px solid #128CD6;
-        box-shadow: 0px 0px 7px 3px rgba(18, 140, 214, 0.22);
-        caret-color: #128CD6;
+    &--Success {
+        border: 1px solid #09AB7A;
+        & + {
+            color: #09AB7A;
+        }
     }
-    &::placeholder {
-        color: #AAADB2;
+    &--Warning {
+        border: 1px solid #F2994A;
+        & + {
+            color: #F2994A;
+        }
+    }
+    &--Error {
+        border: 1px solid #EB5757;
+        & + {
+            color: #EB5757;
+        }
     }
     &:disabled {
         background: #F2F2F2;
@@ -43,17 +64,34 @@
 }
 
 .Label {
-    position: absolute;
-    left: 0%;
-    top: 0%;
+    text-align: left;
     font-style: normal;
     font-family: "Inter", sans-serif;
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
-    color: #494A4C;
+    
+    &--Normal {
+        color: #494A4C;
+    }
+    &--Success {
+        color: #09AB7A;
+    }
+    &--Warning {
+        color: #F2994A;
+    }
+    &--Error {
+        color: #EB5757;
+    }
     &__Disabled {
         color: #AAADB2;
     }
+}
+
+.Icon {
+    position: absolute;
+    top: 30%;
+    right: 3%;
+    z-index: 2;
 }
 
