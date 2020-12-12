@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cssStyle from './Dropdown.module.scss';
-
+import DropDownIcon from '../../resources/images/icons/dropdown.svg';
+import classNames from 'classnames';
 
 class Dropdown extends Component {
 
@@ -56,14 +57,16 @@ class Dropdown extends Component {
         )
     }
     render() {
+        const dropdownClasses = classNames(cssStyle["DropdownGroup__Dropdown"], {[cssStyle["DropdownGroup__Dropdown--open"]]: this.state.showOptions})
+        const labelClass =  classNames(cssStyle["DropdownGroup__Label"], {[cssStyle["DropdownGroup__Label--open"]]: this.state.showOptions})
         return (
             <div className={cssStyle["DropdownGroup"]}>
-                {/* <label id="occurrenceLabel" class="modalDropdownLabel" for="occurrence">Which occurrence of the data should we choose?</label> */}
-                <div className={cssStyle["DropdownGroup__Dropdown"]}>
+                <label className={labelClass}>{this.props.label}</label>
+                <div className={dropdownClasses}>
                     <div className={cssStyle["DropdownGroup__Dropdown__select"]}>
                         <div className={cssStyle["DropdownGroup__Dropdown__trigger"]} onClick={this.toggleOptions}>
-                           <span data-value={this.state.value}>{this.state.value}</span>
-                           <div className={cssStyle["DropdownGroup__Dropdown__Icon"]}></div>
+                            <span data-value={this.state.value}>{this.state.value}</span>
+                            <img className={cssStyle["DropdownGroup__Dropdown__Icon"]} src={DropDownIcon} alt="dropdown"/>
                         </div>
                         {this.state.showOptions ? this.renderOptions() : null}
                     </div>

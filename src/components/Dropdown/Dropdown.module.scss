@@ -1,11 +1,27 @@
 .DropdownGroup {
     position:relative;
+    text-align: left;
+    &:focus{
+        outline: none;
+    }
+    &__Label {
+        position: relative;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        color: #494A4C;
+        bottom: 5px;
+        &--open{
+            color: #128CD6;
+        }
+    }
     &__Dropdown {
         margin-bottom: 5px;
-        height: 38px;
+        height: 40px;
         text-indent: 1rem;
         width: 300px;
-        padding-top: 6px;
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
@@ -14,11 +30,22 @@
         letter-spacing: 0;
         line-height: 0;
         cursor: pointer;
-
         background: #FFFFFF;
         border: 1px solid #DADEE5;
         box-sizing: border-box;
         border-radius: 7px;
+
+        &--open{
+            border: 1px solid #128CD6;
+            box-shadow: 0px 0px 7px 3px rgba(18, 140, 214, 0.22);
+        }
+        &:hover{
+            border: 1px solid #128CD6;
+        }
+        &__Icon {
+            color: #181919;
+            padding-right: 6%;
+        }
 
         &__select {
             position: relative;
@@ -33,8 +60,9 @@
             font-size: 14px;
             font-weight: 300;
             color: #3b3b3b;
-            height: 30px;
-            text-indent: 2rem;
+            height: 40px;
+            margin-left: 4px;
+            // text-indent: 2rem;
         }
         &__options {
             position: absolute;
@@ -54,7 +82,7 @@
             padding: 4px 0px;
             & span {
                 position: relative;
-                display: block;
+                display: flex;
                 padding: 0 10px;
                 font-size: 14px;
                 font-weight: 300;
@@ -63,6 +91,8 @@
                 line-height: 17px;
                 color: #181919;
                 margin: 0px 4px;
+                height: 40px;
+                align-items: center;
             }
             &--selected {
                 background: rgba($color: #61C4E8, $alpha: 0.2);

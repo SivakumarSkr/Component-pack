@@ -18,7 +18,7 @@ const componentTest = () => {
             <InputField label="Place" value="Kunnamkulam" type="Success"/>
             <InputField label="Age" value="Thrissur" type="Error"/>
             <InputField label="Job" value="Btech" type="Warning"/> */}
-            <Dropdown options={['india', 'America', 'England']} value="india"/>
+            <Dropdown options={['india', 'America', 'England']} value="india" label="Country"/>
         </div>
     )
 }
