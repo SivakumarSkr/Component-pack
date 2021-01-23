@@ -1,0 +1,75 @@
+// $colors: 
+//     "red" #eb5757,
+//     "orange" #F2994A,
+//     "yellow" #F2C94C,
+//     "green" #09AB7A,
+//     "lightgreen" #11D688,
+//     "blue" #095CAB,
+//     "mediumblue" #128CD6,
+//     "lightblue" #61C4E8,
+//     "purple" #9B51E0,
+//     "lightpurple" #BB6BD9;
+$colors: 
+    "red" rgba(235, 87, 87, 0.2) #eb5757,
+    "orange" rgba(242, 153, 74, 0.2) #F2994A,
+    "yellow" rgba(242, 201, 76, 0.2) #F2C94C,
+    "green" rgba(9, 171, 122, 0.2) #09AB7A,
+    "lightgreen" rgba(17, 214, 136, 0.2) #11D688,
+    "blue" rgba(9, 92, 171, 0.2) #095CAB,
+    "mediumblue" rgba(18, 140, 214, 0.2) #128CD6,
+    "lightblue" rgba(97, 196, 232, 0.2) #61C4E8,
+    "purple" rgba(155, 81, 224, 0.2) #9B51E0,
+    "lightpurple" rgba(187, 107, 217, 0.2) #BB6BD9;
+.Tag {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 4px 6px;
+    height: 23px;
+    border-radius: 6px;
+   
+
+    &__default {
+        background-color: #DADEE5;
+
+    }
+    &__Label{
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        // margin: 10px 0px;
+
+        &__default{
+            color: #494A4C;
+        }
+    }
+    
+    &__Icon{
+        flex: none;
+        order: 1;
+        flex-grow: 1;
+        margin: 5px 0px;
+        &__default{
+            color: #494A4C;
+        }
+    }
+    @each $name, $rgb, $hex in $colors {
+
+        &__Label__#{$name} {
+            color: $hex;
+        }
+        &__#{$name} {
+            background: $rgb;
+        }
+        &__Icon__#{$name} {
+            color: $hex;
+        }
+    }
+}
+
+    

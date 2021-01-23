@@ -2,7 +2,8 @@
     position:relative;
     text-align: left;
     &:focus{
-        outline: none;
+        outline: none !important;
+        border: none !important;
     }
     &__Label {
         position: relative;
@@ -15,6 +16,9 @@
         bottom: 5px;
         &--open{
             color: #128CD6;
+        }
+        &--disabled{
+            color: #AAADB2;
         }
     }
     &__Dropdown {
@@ -34,7 +38,7 @@
         border: 1px solid #DADEE5;
         box-sizing: border-box;
         border-radius: 7px;
-
+        
         &--open{
             border: 1px solid #128CD6;
             box-shadow: 0px 0px 7px 3px rgba(18, 140, 214, 0.22);
@@ -45,6 +49,9 @@
         &__Icon {
             color: #181919;
             padding-right: 6%;
+            &--disabled{
+                color: #797B80;
+            }
         }
 
         &__select {

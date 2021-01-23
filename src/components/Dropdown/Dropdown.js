@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cssStyle from './Dropdown.module.scss';
 import DropDownIcon from '../../resources/images/icons/dropdown.svg';
 import classNames from 'classnames';
-
+import onClickOutside from "react-onclickoutside";
 class Dropdown extends Component {
 
     static defaultProps = {
@@ -32,6 +32,9 @@ class Dropdown extends Component {
             value: value,
         }
     }
+    handleClickOutside = () => {
+        this.setState({'showOptions': false})
+    }
     toggleOptions = () => {
         let showOptions = this.state.showOptions;
         this.setState({"showOptions": !showOptions})
@@ -57,8 +60,14 @@ class Dropdown extends Component {
         )
     }
     render() {
-        const dropdownClasses = classNames(cssStyle["DropdownGroup__Dropdown"], {[cssStyle["DropdownGroup__Dropdown--open"]]: this.state.showOptions})
-        const labelClass =  classNames(cssStyle["DropdownGroup__Label"], {[cssStyle["DropdownGroup__Label--open"]]: this.state.showOptions})
+        const dropdownClasses = classNames(cssStyle["DropdownGroup__Dropdown"], 
+            {[cssStyle["DropdownGroup__Dropdown--open"]]: this.state.showOptions},
+            {[cssStyle['DropdownGroup__Dropdown--disabled']]: this.state.disabled})
+        const labelClass =  classNames(cssStyle["DropdownGroup__Label"], 
+            {[cssStyle["DropdownGroup__Label--open"]]: this.state.showOptions},
+            {[cssStyle['DropdownGroup__Label--disabled']]: this.props.disabled})
+        const iconClass = classNames(cssStyle['DropdownGroup__Dropdown__Icon'], 
+            {[cssStyle['DropdownGroup__Dropdown__Icon--disabled']]: this.props.disabled})
         return (
             <div className={cssStyle["DropdownGroup"]}>
                 <label className={labelClass}>{this.props.label}</label>
@@ -66,9 +75,9 @@ class Dropdown extends Component {
                     <div className={cssStyle["DropdownGroup__Dropdown__select"]}>
                         <div className={cssStyle["DropdownGroup__Dropdown__trigger"]} onClick={this.toggleOptions}>
                             <span data-value={this.state.value}>{this.state.value}</span>
-                            <img className={cssStyle["DropdownGroup__Dropdown__Icon"]} src={DropDownIcon} alt="dropdown"/>
+                            <img className={iconClass} src={DropDownIcon} alt="dropdown"/>
                         </div>
-                        {this.state.showOptions ? this.renderOptions() : null}
+                        {!this.props.disabled && this.state.showOptions ? this.renderOptions() : null}
                     </div>
                 </div>
             </div>
@@ -76,4 +85,4 @@ class Dropdown extends Component {
     }
 }
 
-export default Dropdown;
+export default onClickOutside(Dropdown);

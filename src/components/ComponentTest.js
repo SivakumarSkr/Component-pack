@@ -3,7 +3,7 @@ import Button from './Button/Button';
 import cssStyle from './ComponentTest.module.scss';
 import InputField from './InputField/InputField';
 import Dropdown from './Dropdown/Dropdown';
-
+import Tag from './Tag/Tag';
 
 const componentTest = () => {
     return (
@@ -18,7 +18,8 @@ const componentTest = () => {
             <InputField label="Place" value="Kunnamkulam" type="Success"/>
             <InputField label="Age" value="Thrissur" type="Error"/>
             <InputField label="Job" value="Btech" type="Warning"/> */}
-            <Dropdown options={['india', 'America', 'England']} value="india" label="Country"/>
+            {/* <Dropdown options={['india', 'America', 'England']} value="india" label="Country" disabled/> */}
+            <Tag label="smile" color="purple"/>
         </div>
     )
 }
