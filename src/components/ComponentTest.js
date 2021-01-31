@@ -4,6 +4,8 @@ import cssStyle from './ComponentTest.module.scss';
 import InputField from './InputField/InputField';
 import Dropdown from './Dropdown/Dropdown';
 import Tag from './Tag/Tag';
+import ToggleButton from './ToggleButton/ToggleButton';
+
 
 const componentTest = () => {
     return (
@@ -19,7 +21,9 @@ const componentTest = () => {
             <InputField label="Age" value="Thrissur" type="Error"/>
             <InputField label="Job" value="Btech" type="Warning"/> */}
             {/* <Dropdown options={['india', 'America', 'England']} value="india" label="Country" disabled/> */}
-            <Tag label="smile" color="purple"/>
+            <Tag label="Tag" color="purple" closable/>
+            <ToggleButton checked type="text"/>
+            <ToggleButton checked />
         </div>
     )
 }

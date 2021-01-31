@@ -23,7 +23,7 @@ $colors:
 .Tag {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     padding: 4px 6px;
     height: 23px;
     border-radius: 6px;
@@ -33,6 +33,10 @@ $colors:
         background-color: #DADEE5;
 
     }
+    &__add {
+        border: 1px dashed #AAADB2;
+        box-sizing: border-box;
+    }
     &__Label{
         font-family: Inter;
         font-style: normal;
@@ -40,7 +44,6 @@ $colors:
         font-size: 12px;
         line-height: 15px;
         flex: none;
-        order: 0;
         flex-grow: 0;
         // margin: 10px 0px;
 
@@ -51,11 +54,14 @@ $colors:
     
     &__Icon{
         flex: none;
-        order: 1;
         flex-grow: 1;
-        margin: 5px 0px;
+        margin-left: 5px;
         &__default{
             color: #494A4C;
+        }
+        &__add {
+            margin-right: 5px;
+            margin-left: 0px;
         }
     }
     @each $name, $rgb, $hex in $colors {
@@ -67,7 +73,9 @@ $colors:
             background: $rgb;
         }
         &__Icon__#{$name} {
-            color: $hex;
+            & path{
+                stroke: $hex;
+            }
         }
     }
 }

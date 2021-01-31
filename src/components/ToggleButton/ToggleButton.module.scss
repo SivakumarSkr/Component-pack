@@ -1,0 +1,98 @@
+.flipswitch {
+    position: relative;
+    width: 36px;
+
+    & input[type=checkbox] {
+        display: none;
+    }
+    &--text{
+        width: 61px;
+    }
+}
+
+.flipswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 0px solid #999999;
+    border-radius: 12px;
+    &--text {
+        border-radius: 50px;
+    }
+}
+
+.flipswitch-inner {
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+
+    &:before, &:after {
+        content: "";
+        float: left;
+        width: 50%;
+        height: 11px;
+        padding: 0;
+        line-height: 11px;
+        font-size: 12px;
+        color: white; 
+        font-weight: bold;
+        box-sizing: border-box;
+    }
+
+    &:before {
+        text-align: center;
+        padding-right: 10px;
+        background-color: #128CD6;
+        color: #FFFFFF;
+    }
+
+    &:after {
+        text-align: center;
+        padding-right: 10px;
+        background-color: #AAADB2;
+        color: #FFFFFF;
+        text-align: right;
+    }
+    &--text::before, &--text::after{
+        height: 20px;
+        line-height: 20px;
+    }
+    &--text::after{
+        content: "OFF"
+    }
+    &--text::before{
+        content: "ON"
+    }
+}
+
+.flipswitch-switch {
+    width: 18px;
+    margin: -3.5px;
+    background: #FFFFFF;
+    border: 1px solid #999999;
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 23px;
+    transition: all 0.3s ease-in 0s;
+    &--text {
+        width: 16px;
+        margin: 2px;
+        border-radius: 50px;
+        right: 40px;
+        border: 0px solid #999999;
+    }
+}
+
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-inner {
+    margin-left: 0;
+}
+
+.flipswitch-cb:checked + .flipswitch-label .flipswitch-switch {
+    right: 0;
+    border: 1px solid #128CD6;    
+    &--text {
+        border: 0px solid #128CD6;    
+    }
+}
